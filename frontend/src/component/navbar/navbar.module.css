@@ -1,0 +1,99 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e9f6fa;
+  /* very light blue background */
+  padding: 0.9rem 2rem;
+  color: #153b4a;
+  /* border-bottom: 1px solid #cde4ec; */
+  box-shadow: 0 2px 8px rgba(24, 108, 135, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Brand / Logo */
+.navBrand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #176b8f;
+  /* darker ocean blue */
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.navBrand:hover {
+  color: #12546f;
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLink {
+  color: #3a5f70;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.navLink:hover {
+  color: #176b8f;
+}
+
+.navLink.active {
+  color: #176b8f;
+}
+
+.navLink.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #176b8f;
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+/* User Section */
+.navUser {
+  font-weight: 600;
+  color: #187ca1;
+  background: #d4edf5;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.navUser:hover {
+  background: #c4e5ef;
+  color: #145e7d;
+}
+
+/* Responsive Behavior */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navLinks {
+    margin-top: 0.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navBrand {
+    font-size: 1.4rem;
+  }
+}

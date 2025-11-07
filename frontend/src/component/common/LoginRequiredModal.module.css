@@ -1,0 +1,65 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: min(92vw, 380px);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #141a20, #0f1418);
+    border: 1px solid rgba(111, 224, 198, 0.22);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    color: #e8f3ef;
+    padding: 16px;
+}
+
+.title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #6fe0c6;
+}
+
+.text {
+    margin: 0 0 14px;
+    color: #a9bac8;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.primary,
+.secondary {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(111, 224, 198, 0.35);
+    background: #0d1115;
+    color: #daf7ef;
+}
+
+.primary {
+    background: linear-gradient(90deg, #6fe0c6, #4fd1c5);
+    color: #0b0d10;
+    border: none;
+}
+
+.primary:hover {
+    filter: brightness(1.05);
+}
+
+.secondary:hover {
+    border-color: rgba(111, 224, 198, 0.65);
+}

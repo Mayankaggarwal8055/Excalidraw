@@ -1,0 +1,139 @@
+/* DASHBOARD LAYOUT */
+.dashboard-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #dce7ed 0%, #bcd2de 100%);
+    /* soft medium blue-gray gradient */
+    padding: 2.5rem;
+    box-sizing: border-box;
+    animation: fadeIn 0.6s ease-in-out;
+    
+}
+
+/* NEW PROJECT BUTTON AREA */
+.dashboard-wrap>*:first-child {
+    margin-bottom: 2.5rem;
+}
+
+/* DRAWING GRID */
+.drawing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1300px;
+    padding: 1rem;
+    box-sizing: border-box;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+/* WHEN NO DRAWINGS YET */
+.no-drawings {
+    color: #394e5a;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 5rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* DRAWING CARD BASE (fallback style) */
+.drawing-grid .drawing-card {
+    position: relative;
+    background: linear-gradient(160deg, #ffffff, #f6fafc);
+    border: 1px solid #cfd8de;
+    border-radius: 14px;
+    padding: 1.2rem;
+    color: #1f2937;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    animation: cardAppear 0.5s ease both;
+}
+
+.drawing-grid .drawing-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    border-color: #8fc9df;
+    background: linear-gradient(160deg, #f9fdff, #eef6fa);
+}
+
+/* CARD ENTRANCE ANIMATION */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* LIGHT GLOW EFFECT ON HOVER */
+.drawing-grid .drawing-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle at 50% 0%, rgba(24, 108, 135, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.drawing-grid .drawing-card:hover::before {
+    opacity: 1;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .dashboard-wrap {
+        padding: 1.5rem;
+    }
+
+    .drawing-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-wrap {
+        padding: 1rem;
+    }
+
+    .drawing-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.2rem;
+    }
+}

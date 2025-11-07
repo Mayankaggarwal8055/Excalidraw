@@ -1,0 +1,30 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model userRecord {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String    @unique
+  password  String
+  name      String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  drawings  Drawing[]
+}
+
+model Drawing {
+  id        String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String      @db.Uuid
+  title     String?
+  shapes    Json
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  user      userRecord  @relation(fields: [userId], references: [id])
+}
