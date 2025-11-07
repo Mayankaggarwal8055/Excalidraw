@@ -14,6 +14,8 @@ export const AuthContextProvider = ({ children }) => {
         const checkAuth = async () => {
             try {
                 const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
+                    method: "get",
+                    headers: { "Content-Type": "application/json" },
                     credentials: "include",
                 });
                 if (res.ok) {
