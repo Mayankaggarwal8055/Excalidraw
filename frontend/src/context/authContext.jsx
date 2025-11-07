@@ -13,7 +13,7 @@ export const AuthContextProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const res = await fetch(`http://localhost:4444/api/auth/me`, {
+                const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/me`, {
                     credentials: "include",
                 });
                 if (res.ok) {
