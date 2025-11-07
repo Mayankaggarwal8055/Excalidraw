@@ -3,7 +3,7 @@ export const signUpData = async (userData) => {
 
         console.log(userData);
         
-        const res = await fetch(`http://localhost:4444/api/auth/signup`, {   // 👈 direct local URL
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`, {   // 👈 direct local URL
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(userData),
@@ -27,7 +27,7 @@ export const signUpData = async (userData) => {
 
 export const loginData = async (userData) => {
     try {
-        const res = await fetch(`http://localhost:4444/api/auth/login`, {    // 👈 direct local URL
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {    // 👈 direct local URL
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),

@@ -3,7 +3,7 @@
 // ✅ Save Drawing
 export const saveDrawing = async (userId, shapes) => {
     try {
-        const res = await fetch(`http://localhost:4444/api/draw/save`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/draw/save`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include", // for JWT cookies
@@ -32,7 +32,7 @@ export const saveDrawing = async (userId, shapes) => {
 export const getUserDrawings = async (userId) => {
 
     try {
-        const res = await fetch(`http://localhost:4444/api/draw/user/${userId}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/draw/user/${userId}`, {
             method: "GET",
             credentials: "include", // for JWT cookies
         });
@@ -57,7 +57,7 @@ export const getUserDrawings = async (userId) => {
 // ✅ Delete Drawing by ID
 export const deleteDrawing = async (drawingId) => {
     try {
-        const res = await fetch(`http://localhost:4444/api/draw/${drawingId}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/draw/${drawingId}`, {
             method: "DELETE",
             credentials: "include", // for JWT cookies
         });
@@ -79,7 +79,7 @@ export const deleteDrawing = async (drawingId) => {
 // ✅ Get Single Drawing by ID
 export const getDrawingById = async (drawingId) => {
     try {
-        const res = await fetch(`http://localhost:4444/api/draw/${drawingId}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/draw/${drawingId}`, {
             method: "put",
             credentials: "include", // include JWT cookie
         });
