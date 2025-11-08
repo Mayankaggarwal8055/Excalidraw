@@ -33,6 +33,8 @@ It allows users to draw, brainstorm, and collaborate in real-time through an int
 - PostgreSQL (Render-hosted)
 - Socket.io (Real-time Engine)
 
+---
+
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the Repository
